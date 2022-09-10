@@ -8,6 +8,7 @@ export class AuthService {
   }
 
   async joinUser(user: any) {
+    //이름도 추가 해야됨
     return await this.#userRepository.join(user.email, user.password);
   }
 }
