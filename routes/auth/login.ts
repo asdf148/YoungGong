@@ -1,7 +1,7 @@
 import { HandlerContext, Handlers } from "$fresh/server.ts";
 import { AuthService } from "../../services/auth.service.ts";
 import { client } from "../../utils/database/database.ts";
-import { JoinUserDTO } from "../../utils/dto/join_user.dto.ts";
+import { LoginUserDTO } from "../../utils/dto/login_user.dto.ts";
 import { UserRepository } from "../../utils/repositories/user.repository.ts";
 
 const authService: AuthService = new AuthService(new UserRepository(client));
@@ -11,10 +11,10 @@ export const handler: Handlers = {
     return await ctx.render(null);
   },
   async POST(req: Request, _ctx: HandlerContext) {
-    const user: JoinUserDTO = await req.json();
+    const user: LoginUserDTO = await req.json();
     try {
-      const joinedUser = await authService.userJoin(user);
-      return new Response(JSON.stringify({ "data": joinedUser ?? "failed" }), {
+      const loginUser = await authService.userLogin(user);
+      return new Response(JSON.stringify({ "data": loginUser ?? "failed" }), {
         status: 201,
         statusText: "Created",
       });
