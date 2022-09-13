@@ -20,4 +20,8 @@ export class AuthService {
   async userLogin(user: LoginUserDTO) {
     return await this.#userRepository.login(user.email, user.password);
   }
+
+  getSession() {
+    return this.#userRepository.getSession();
+  }
 }

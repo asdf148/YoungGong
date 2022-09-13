@@ -3,31 +3,41 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/[name].tsx";
-import * as $1 from "./routes/api/joke.ts";
-import * as $2 from "./routes/auth/join.ts";
-import * as $3 from "./routes/auth/join.tsx";
-import * as $4 from "./routes/auth/login.ts";
-import * as $5 from "./routes/auth/login.tsx";
-import * as $6 from "./routes/index.tsx";
+import * as $0 from "./routes/auth/join.ts";
+import * as $1 from "./routes/auth/join.tsx";
+import * as $2 from "./routes/auth/login.ts";
+import * as $3 from "./routes/auth/login.tsx";
+import * as $4 from "./routes/auth/user.ts";
+import * as $5 from "./routes/auth/user.tsx";
+import * as $6 from "./routes/auth/users.ts";
+import * as $7 from "./routes/index.ts";
+import * as $8 from "./routes/index.tsx";
+import * as $9 from "./routes/word/index.ts";
+import * as $10 from "./routes/word/words.ts";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/Join.tsx";
 import * as $$2 from "./islands/Login.tsx";
+import * as $$3 from "./islands/word_list.tsx";
 
 const manifest = {
   routes: {
-    "./routes/[name].tsx": $0,
-    "./routes/api/joke.ts": $1,
-    "./routes/auth/join.ts": $2,
-    "./routes/auth/join.tsx": $3,
-    "./routes/auth/login.ts": $4,
-    "./routes/auth/login.tsx": $5,
-    "./routes/index.tsx": $6,
+    "./routes/auth/join.ts": $0,
+    "./routes/auth/join.tsx": $1,
+    "./routes/auth/login.ts": $2,
+    "./routes/auth/login.tsx": $3,
+    "./routes/auth/user.ts": $4,
+    "./routes/auth/user.tsx": $5,
+    "./routes/auth/users.ts": $6,
+    "./routes/index.ts": $7,
+    "./routes/index.tsx": $8,
+    "./routes/word/index.ts": $9,
+    "./routes/word/words.ts": $10,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
     "./islands/Join.tsx": $$1,
     "./islands/Login.tsx": $$2,
+    "./islands/word_list.tsx": $$3,
   },
   baseUrl: import.meta.url,
   config,

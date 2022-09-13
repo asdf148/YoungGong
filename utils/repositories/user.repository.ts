@@ -34,4 +34,8 @@ export class UserRepository {
 
     return user;
   }
+
+  getSession() {
+    return this.#client.auth.session();
+  }
 }

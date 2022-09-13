@@ -1,10 +1,6 @@
 import { HandlerContext, Handlers } from "$fresh/server.ts";
-import { AuthService } from "../../services/auth.service.ts";
-import { client } from "../../utils/database/database.ts";
-import { LoginUserDTO } from "../../utils/dto/login_user.dto.ts";
-import { UserRepository } from "../../utils/repositories/user.repository.ts";
-
-const authService: AuthService = new AuthService(new UserRepository(client));
+import { authService } from "@/services/index.service.ts";
+import { LoginUserDTO } from "@/utils/dto/login_user.dto.ts";
 
 export const handler: Handlers = {
   async GET(_req: Request, ctx: HandlerContext) {

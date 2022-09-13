@@ -7,7 +7,6 @@ export default function Login() {
   });
 
   const send = () => {
-    console.log(form);
     fetch("/auth/login", {
       method: "POST",
       body: JSON.stringify(form),

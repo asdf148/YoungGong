@@ -8,7 +8,6 @@ export default function Join() {
   });
 
   const send = () => {
-    console.log(form);
     fetch("/auth/join", {
       method: "POST",
       body: JSON.stringify(form),
