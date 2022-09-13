@@ -1,15 +1,14 @@
 import { useState } from "preact/hooks";
 
-export default function Join() {
+export default function Login() {
   const [form, setForm] = useState({
-    name: "",
     email: "",
     password: "",
   });
 
   const send = () => {
     console.log(form);
-    fetch("/auth/join", {
+    fetch("/auth/login", {
       method: "POST",
       body: JSON.stringify(form),
     }).then((response: Response) => {
@@ -17,7 +16,7 @@ export default function Join() {
         console.log(result);
       });
     });
-    setForm({ name: "", email: "", password: "" });
+    setForm({ email: "", password: "" });
   };
 
   const onInput = (e: any) => {
@@ -30,17 +29,6 @@ export default function Join() {
 
   return (
     <>
-      <input
-        type="text"
-        class="border rounded shadow-md px-4 py-2 w-72"
-        placeholder="Name"
-        name="name"
-        value={form.name}
-        onInput={onInput}
-        onKeyDown={(e) => e.key === "Enter" && send()}
-      />
-      <br />
-      <br />
       <input
         type="email"
         class="border rounded shadow-md px-4 py-2 w-72"
@@ -68,7 +56,7 @@ export default function Join() {
         type="submit"
         onClick={send}
       >
-        Sign Up
+        Sign In
       </button>
     </>
   );

@@ -9,7 +9,7 @@ export default function JoinPage() {
         alt="the fresh logo: a sliced lemon dripping with juice"
       />
       <br />
-      <h2>Sign In</h2>
+      <h2>Sign Up</h2>
       <br />
       <Join />
     </div>

@@ -1,4 +1,6 @@
-export default function Login() {
+import Login from "@/islands/Login.tsx";
+
+export default function LoginPage() {
   return (
     <div class="p-4 mx-auto max-w-screen-md">
       <img
@@ -9,30 +11,7 @@ export default function Login() {
       <br />
       <h2>Sign In</h2>
       <br />
-      <form action="http://localhost:8000/auth/join" method="post">
-        <input
-          type="email"
-          class="border rounded shadow-md px-4 py-2 w-72"
-          name="email"
-          placeholder="Email"
-        />
-        <br />
-        <br />
-        <input
-          type="password"
-          class="border rounded shadow-md px-4 py-2 w-72"
-          name="password"
-          placeholder="Password"
-        />
-        <br />
-        <br />
-        <button
-          class="border rounded shadow-md px-4 py-2 bg-blue-800 text-white"
-          type="submit"
-        >
-          Sign Up
-        </button>
-      </form>
+      <Login />
     </div>
   );
 }
