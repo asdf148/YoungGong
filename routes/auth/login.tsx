@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Login() {
   return (
     <div class="p-4 mx-auto max-w-screen-md">
       <img
@@ -9,7 +9,7 @@ export default function Home() {
       <br />
       <h2>Sign In</h2>
       <br />
-      <form>
+      <form action="http://localhost:8000/auth/join" method="post">
         <input
           type="email"
           class="border rounded shadow-md px-4 py-2 w-72"
