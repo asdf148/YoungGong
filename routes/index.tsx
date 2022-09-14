@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout.tsx";
-import WordList from "@/islands/word_list.tsx";
+import WordList from "@/islands/WordList.tsx";
 import { Word } from "@/utils/database/models/word.ts";
 import {
   HandlerContext,

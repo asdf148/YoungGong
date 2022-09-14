@@ -1,4 +1,4 @@
-import { Word } from "../utils/database/models/word.ts";
+import { Word } from "@/utils/database/models/word.ts";
 
 export default function WordList({ words }: {
   words: Array<Word>;

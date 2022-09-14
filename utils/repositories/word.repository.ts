@@ -1,6 +1,7 @@
 import * as supabase from "supabase";
 import { Word } from "../database/models/word.ts";
 import { AddWordDTO } from "../dto/add_word.dto.ts";
+import errorHandler from "../error.handler.ts";
 
 export class WordRepository {
   #client: supabase.SupabaseClient;
@@ -10,16 +11,14 @@ export class WordRepository {
   }
 
   async getWords(): Promise<Array<Word>> {
-    const result: supabase.PostgrestResponse<any> = await this.#client.from(
-      "words",
-    ).select("*");
+    const { data, error }: supabase.PostgrestResponse<any> = await this.#client
+      .from(
+        "words",
+      ).select("*");
 
-    if (result.error) {
-      console.error(result.error);
-      throw new Error(result.error.message);
-    }
+    errorHandler(error);
 
-    return result.data as Array<Word>;
+    return data as Array<Word>;
   }
 
   async addWord(wordData: AddWordDTO): Promise<void> {
@@ -30,10 +29,7 @@ export class WordRepository {
       user_id: this.#client.auth.session()?.user?.id,
     }], { returning: "minimal" });
 
-    if (error) {
-      console.error(error);
-      throw new Error(error.message);
-    }
+    errorHandler(error);
 
     return;
   }
