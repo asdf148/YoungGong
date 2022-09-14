@@ -1,3 +1,4 @@
+import { Word } from "../utils/database/models/word.ts";
 import { AddWordDTO } from "../utils/dto/add_word.dto.ts";
 import { WordRepository } from "../utils/repositories/word.repository.ts";
 
@@ -8,7 +9,7 @@ export class WordService {
     this.#wordRepository = wordRepository;
   }
 
-  async getAllWord() {
+  async getAllWord(): Promise<Array<Word>> {
     return await this.#wordRepository.getWords();
   }
 

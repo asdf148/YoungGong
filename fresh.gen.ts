@@ -10,10 +10,9 @@ import * as $3 from "./routes/auth/login.tsx";
 import * as $4 from "./routes/auth/user.ts";
 import * as $5 from "./routes/auth/user.tsx";
 import * as $6 from "./routes/auth/users.ts";
-import * as $7 from "./routes/index.ts";
-import * as $8 from "./routes/index.tsx";
-import * as $9 from "./routes/word/index.ts";
-import * as $10 from "./routes/word/words.ts";
+import * as $7 from "./routes/index.tsx";
+import * as $8 from "./routes/word/index.ts";
+import * as $9 from "./routes/word/words.ts";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/Join.tsx";
 import * as $$2 from "./islands/Login.tsx";
@@ -28,10 +27,9 @@ const manifest = {
     "./routes/auth/user.ts": $4,
     "./routes/auth/user.tsx": $5,
     "./routes/auth/users.ts": $6,
-    "./routes/index.ts": $7,
-    "./routes/index.tsx": $8,
-    "./routes/word/index.ts": $9,
-    "./routes/word/words.ts": $10,
+    "./routes/index.tsx": $7,
+    "./routes/word/index.ts": $8,
+    "./routes/word/words.ts": $9,
   },
   islands: {
     "./islands/Counter.tsx": $$0,

@@ -1,20 +1,26 @@
-export default function WordList(words: any) {
+import { Word } from "../utils/database/models/word.ts";
+
+export default function WordList({ words }: {
+  words: Array<Word>;
+}) {
   return (
     <>
-      <div>
-        {words.map((word: any) => <WordCard word={word} />)}
+      <div class="flex my-5 justify-center">
+        {words.map((word: Word) => <WordCard word={word} />)}
       </div>
     </>
   );
 }
 
-function WordCard(word: any) {
+function WordCard({ word }: {
+  word: Word;
+}) {
   return (
     <>
-      <div>
-        <p>{word.english}</p>
-        <p>{word.mean}</p>
-        <p>{word.hint}</p>
+      <div class="mx-3 border-2 border-solid border-black rounded-md text-justify">
+        <p class="mx-3 mt-2">{word.english}</p>
+        <p class="mx-3">{word.mean}</p>
+        <p class="mx-3 mb-2">{word.hint}</p>
       </div>
     </>
   );

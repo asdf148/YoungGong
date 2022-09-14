@@ -2,7 +2,7 @@ export default function Layout({ children }: any) {
   return (
     <>
       <div>
-        <nav class="flex w-full px-3 py-2 bg-yellow-800 text-white mb-10 justify-between">
+        <nav class="flex w-full px-3 py-2 bg-green-400 text-white mb-5 justify-between">
           <a class="mx-4" href="/">
             <img
               src="/logo.svg"
@@ -12,7 +12,9 @@ export default function Layout({ children }: any) {
           </a>
           <a class="place-content-center" href="/auth/user">User</a>
         </nav>
-        {children}
+        <div class="text-center mx-80">
+          {children}
+        </div>
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 import * as supabase from "supabase";
+import { Word } from "../database/models/word.ts";
 import { AddWordDTO } from "../dto/add_word.dto.ts";
 
 export class WordRepository {
@@ -8,18 +9,17 @@ export class WordRepository {
     this.#client = client;
   }
 
-  async getWords() {
+  async getWords(): Promise<Array<Word>> {
     const result: supabase.PostgrestResponse<any> = await this.#client.from(
       "words",
-    )
-      .select();
+    ).select("*");
 
     if (result.error) {
       console.error(result.error);
       throw new Error(result.error.message);
     }
 
-    return result.data;
+    return result.data as Array<Word>;
   }
 
   async addWord(wordData: AddWordDTO): Promise<void> {
