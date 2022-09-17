@@ -5,25 +5,26 @@ import {
 import { wordSetService } from "@/services/index.service.ts";
 import { AddWordSetDTO } from "@/utils/dto/add_word_set.dto.ts";
 import errorHandler from "@/utils/error.handler.ts";
+import { PostgrestError } from "https://esm.sh/v94/@supabase/postgrest-js@0.37.4/dist/module/index.d.ts";
 
 export const handler: Handlers = {
   async POST(req: Request, _ctx: HandlerContext) {
     const wordSet: AddWordSetDTO = await req.json();
-    await wordSetService.addWordSet(wordSet);
-    try {
-      return new Response(
+    const error: PostgrestError | null = await wordSetService.addWordSet(
+      wordSet,
+    );
+    errorHandler(error);
+    return error
+      ? new Response(JSON.stringify({ "error": error.message }), {
+        status: 400,
+        statusText: "Bad Request",
+      })
+      : new Response(
         JSON.stringify({ "message": "added" }),
         {
           status: 201,
           statusText: "Created",
         },
       );
-    } catch (error) {
-      errorHandler(error);
-      return new Response(JSON.stringify({ "error": error.message }), {
-        status: 4000,
-        statusText: "Bad Request",
-      });
-    }
   },
 };

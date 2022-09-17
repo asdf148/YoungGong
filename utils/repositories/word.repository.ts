@@ -21,7 +21,7 @@ export class WordRepository {
     return data as Array<Word>;
   }
 
-  async addWord(wordData: AddWordDTO): Promise<void> {
+  async addWord(wordData: AddWordDTO): Promise<supabase.PostgrestError | null> {
     const { error } = await this.#client.from("words").insert([{
       english: wordData.english,
       mean: wordData.mean,
@@ -29,8 +29,6 @@ export class WordRepository {
       user_id: this.#client.auth.session()?.user?.id,
     }], { returning: "minimal" });
 
-    errorHandler(error);
-
-    return;
+    return error;
   }
 }

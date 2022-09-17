@@ -5,5 +5,4 @@ export class AddWordSetDTO {
 
   name!: string;
   comment?: string;
-  created_at!: string;
 }

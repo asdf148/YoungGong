@@ -13,10 +13,12 @@ import * as $6 from "./routes/auth/users.ts";
 import * as $7 from "./routes/index.tsx";
 import * as $8 from "./routes/word/index.ts";
 import * as $9 from "./routes/word/words.ts";
+import * as $10 from "./routes/word_set/index.ts";
 import * as $$0 from "./islands/Counter.tsx";
 import * as $$1 from "./islands/Join.tsx";
 import * as $$2 from "./islands/Login.tsx";
-import * as $$3 from "./islands/word_list.tsx";
+import * as $$3 from "./islands/WordList.tsx";
+import * as $$4 from "./islands/WordSetList.tsx";
 
 const manifest = {
   routes: {
@@ -30,12 +32,14 @@ const manifest = {
     "./routes/index.tsx": $7,
     "./routes/word/index.ts": $8,
     "./routes/word/words.ts": $9,
+    "./routes/word_set/index.ts": $10,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
     "./islands/Join.tsx": $$1,
     "./islands/Login.tsx": $$2,
-    "./islands/word_list.tsx": $$3,
+    "./islands/WordList.tsx": $$3,
+    "./islands/WordSetList.tsx": $$4,
   },
   baseUrl: import.meta.url,
   config,

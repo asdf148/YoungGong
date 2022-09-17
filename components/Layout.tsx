@@ -12,7 +12,7 @@ export default function Layout({ children }: any) {
           </a>
           <a class="place-content-center" href="/auth/user">User</a>
         </nav>
-        <div class="text-center mx-80">
+        <div class="text-center">
           {children}
         </div>
       </div>

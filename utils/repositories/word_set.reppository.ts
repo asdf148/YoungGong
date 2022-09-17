@@ -1,4 +1,7 @@
-import { PostgrestResponse } from "https://esm.sh/v94/@supabase/postgrest-js@0.37.4/dist/module/index.d.ts";
+import {
+  PostgrestError,
+  PostgrestResponse,
+} from "https://esm.sh/v94/@supabase/postgrest-js@0.37.4/dist/module/index.d.ts";
 import SupabaseClient from "https://esm.sh/v94/@supabase/supabase-js@1.35.3/dist/module/SupabaseClient.d.ts";
 import { WordSet } from "../database/models/word_set.ts";
 import { AddWordSetDTO } from "../dto/add_word_set.dto.ts";
@@ -22,7 +25,7 @@ export class WordSetRepository {
     return data ?? [];
   }
 
-  async AddWordSet(wordSetData: AddWordSetDTO): Promise<void> {
+  async AddWordSet(wordSetData: AddWordSetDTO): Promise<PostgrestError | null> {
     const { error }: PostgrestResponse<any> = await this.#client.from(
       "word_sets",
     ).insert({
@@ -31,8 +34,6 @@ export class WordSetRepository {
       user_id: this.#client.auth.session()?.user?.id,
     });
 
-    errorHandler(error);
-
-    return;
+    return error;
   }
 }

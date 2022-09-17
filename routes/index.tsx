@@ -25,7 +25,7 @@ export const handler: Handlers = {
 export default function Home({ data }: PageProps<mainData>) {
   return (
     <Layout>
-      <div>
+      <div class="max-w-5xl m-auto">
         <h1 class="text-left">단어 목록</h1>
         <WordList
           words={data.words}

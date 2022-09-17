@@ -5,7 +5,7 @@ export default function WordList({ words }: {
 }) {
   return (
     <>
-      <div class="flex my-5 justify-center">
+      <div class="flex my-5 justify-center overflow-auto whitespace-nowrap">
         {words.map((word: Word) => <WordCard word={word} />)}
       </div>
     </>
